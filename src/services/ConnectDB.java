@@ -1,14 +1,12 @@
-package models;
+package services;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 
-import services.SqliteConnection;
-
-import java.sql.*;
-
-public class LoginModel {
+public class ConnectDB {
     Connection connection ;
 
-    public LoginModel(){
+    public ConnectDB() {
         connection = SqliteConnection.connector();
         if(connection == null){
             System.out.println("Error Connecting !!");
@@ -20,16 +18,8 @@ public class LoginModel {
         try {
             return !connection.isClosed();
         } catch (SQLException e) {
-          e.printStackTrace();
-          return false ;
+            e.printStackTrace();
+            return false ;
         }
     }
-
 }
-
-
-
-
-
-
-
